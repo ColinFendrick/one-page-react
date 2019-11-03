@@ -17,7 +17,7 @@ const Table = ({ data }) => (
 						<td className="center-text">{i}</td>
 						<td className="large-row">{firstName}</td>
 						<td className="large-row">{lastName}</td>
-						<td className="center-text">{participation*100}%</td>
+						<td className="center-text">{participation}%</td>
 					</tr>
 				))}
 			</tbody>

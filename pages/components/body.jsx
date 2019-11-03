@@ -1,31 +1,8 @@
+import PropTypes from 'prop-types'
+
 import { Table, Donut } from '.'
 
-const Body = () => {
-	const data = [{
-		firstName: 'Colin',
-		lastName: 'Whips ass',
-		participation: 0.05
-	}, {
-		firstName: 'Danny',
-		lastName: 'Sucks big scrot',
-		participation: 0.15
-	},
-	{
-		firstName: 'Danny',
-		lastName: 'Sucks big scrot',
-		participation: 0.2
-	},
-	{
-		firstName: 'Danny',
-		lastName: 'Sucks big scrot',
-		participation: 0.2
-	},
-	{
-		firstName: 'Danny',
-		lastName: 'Sucks big scrot',
-		participation: 0.4
-	}]
-
+const Body = ({ data }) => {
 	return <div className="body centered">
 		<div className="title">
 			<h3>Data</h3>
@@ -55,6 +32,10 @@ const Body = () => {
       }
     `}</style>
 	</div>
+}
+
+Body.propTypes = {
+	data: PropTypes.array
 }
 
 export default Body

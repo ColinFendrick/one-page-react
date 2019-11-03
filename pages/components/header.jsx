@@ -1,14 +1,40 @@
-const Header = () => {
-	const onSubmit = values => console.log(values)
-  
+import PropTypes from 'prop-types'
+
+import { useForm } from '../hooks'
+
+const Header = ({ appendData }) => {
+	const initialState = {
+		firstName: '', lastName: '', participation: 0
+	}
+
+	const { inputs, handleInputChange, handleSubmit } = useForm(initialState, () => appendData(inputs))
+
 	return <div className="header centered">
-		<form onSubmit={onSubmit} className="header-wrapper width-std">
-			
-			<input type="text" placeholder="First Name"></input>
-			<input type="text" placeholder="Last Name"></input>
-			<input type="text" placeholder="Participation"></input>
+		<form onSubmit={handleSubmit} className="header-wrapper width-std">
+
+			<input
+				type="text"
+				name="firstName"
+				placeholder="First Name"
+				onChange={handleInputChange}
+				value={inputs.firstName} required>
+			</input>
+			<input
+				type="text"
+				name="lastName"
+				placeholder="Last Name"
+				onChange={handleInputChange}
+				value={inputs.lastName} required>
+			</input>
+			<input
+				type="text"
+				name="participation"
+				placeholder="Participation"
+				onChange={handleInputChange}
+				value={inputs.participation}>
+			</input>
 			<button type="submit">Send</button>
-			
+
 		</form>
 		<style jsx>{`
       .header {
@@ -61,6 +87,10 @@ const Header = () => {
     `}
 		</style>
 	</div>
+}
+
+Header.propTypes = {
+	appendData: PropTypes.func
 }
 
 export default Header
