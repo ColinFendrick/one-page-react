@@ -1,10 +1,14 @@
-import { Table } from '.'
+import { Table, Donut } from '.'
 
 const Body = () => {
-	const tableData = [{
+	const data = [{
 		firstName: 'Colin',
 		lastName: 'Whips ass',
 		participation: 0.8
+	}, {
+		firstName: 'Danny',
+		lastName: 'Sucks big scrot',
+		participation: 0.2
 	}]
   
 	return <div className="body centered">
@@ -13,8 +17,8 @@ const Body = () => {
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
 		</div>
 		<div className="graphs centered width70">
-			<Table data={tableData} />
-			<div className="graph">GRAOH 2</div>
+			<Table data={data} />
+			<Donut data={data} />
 		</div>
 		<style jsx>{`
       .body {
@@ -32,13 +36,6 @@ const Body = () => {
       .graphs {
         border: 2px solid green;
         align-items: flex-start;
-      }
-
-      .graph {
-        width: 40%;
-        height: 250px;
-        margin: 10px;
-        border: 1px solid teal;
       }
     `}</style>
 	</div>

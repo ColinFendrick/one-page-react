@@ -12,12 +12,12 @@ const Table = ({ data }) => (
 				</tr>
 			</thead>
 			<tbody>
-				{data.map((datum, i) => (
+				{data.map(({ firstName, lastName, participation }, i) => (
 					<tr key={i}>
 						<td className="center-text">{i}</td>
-						<td className="large-row">{datum.firstName}</td>
-						<td className="large-row">{datum.lastName}</td>
-						<td className="center-text">{datum.participation*100}%</td>
+						<td className="large-row">{firstName}</td>
+						<td className="large-row">{lastName}</td>
+						<td className="center-text">{participation*100}%</td>
 					</tr>
 				))}
 			</tbody>
@@ -30,6 +30,7 @@ const Table = ({ data }) => (
           align-items: flex-start;
           height: 100%;
           border: 3px solid salmon;
+          width: 400px;
         }
 
         table {

@@ -1,5 +1,6 @@
-import Header from './Header'
+import Header from './header'
 import Body from './body'
 import Table from './table'
+import Donut from './donut'
 
-export { Body, Header, Table }
+export { Body, Header, Table, Donut }
