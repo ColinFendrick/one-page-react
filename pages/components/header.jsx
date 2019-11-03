@@ -45,9 +45,6 @@ const Header = () => (
         font-weight: bold;
         cursor: pointer;
         transition: background-color 0.2s, color 0.2s;
-        -webkit-transition: background-color 0.2s, color 0.2s;
-        -moz-transition: background-color 0.2s, color 0.2s;
-        -o-transition: background-color 0.2s, color 0.2s;
       }
 
       button:hover {
