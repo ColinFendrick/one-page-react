@@ -24,8 +24,8 @@ const Table = ({ data }) => (
 		</table>
 		<style jsx>{`
         .table-wrapper {
-          margin: 10px;
-          font-size: smaller;
+          margin: 10px 15px;
+          font-size: 0.7em;
           color: #b3b3b3;
           align-items: flex-start;
           height: 100%;

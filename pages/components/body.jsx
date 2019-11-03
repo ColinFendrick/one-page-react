@@ -4,23 +4,38 @@ const Body = () => {
 	const data = [{
 		firstName: 'Colin',
 		lastName: 'Whips ass',
-		participation: 0.8
+		participation: 0.05
 	}, {
 		firstName: 'Danny',
 		lastName: 'Sucks big scrot',
+		participation: 0.15
+	},
+	{
+		firstName: 'Danny',
+		lastName: 'Sucks big scrot',
 		participation: 0.2
+	},
+	{
+		firstName: 'Danny',
+		lastName: 'Sucks big scrot',
+		participation: 0.2
+	},
+	{
+		firstName: 'Danny',
+		lastName: 'Sucks big scrot',
+		participation: 0.4
 	}]
-  
+
 	return <div className="body centered">
 		<div className="title">
 			<h3>Data</h3>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.
 		</div>
-		<div className="graphs centered width70">
+		<div className="graphs width70">
 			<Table data={data} />
 			<Donut data={data} />
 		</div>
-		<style jsx>{`
+		<style jsx global>{`
       .body {
         flex-direction: column;
         width: 100%;
@@ -34,8 +49,10 @@ const Body = () => {
       }
 
       .graphs {
-        border: 2px solid green;
+				display: flex;
+				justify-content: center;
         align-items: flex-start;
+        border: 2px solid green;
       }
     `}</style>
 	</div>

@@ -1,33 +1,39 @@
-import DonutChart from 'react-donut-chart'
+import DonutChart from 'react-svg-donut-chart'
 import PropTypes from 'prop-types'
 
+import { DonutLegend } from '.'
+
 const Donut = ({ data }) => {
-	const dataForChart = data.map(({ firstName, lastName, participation }) => ({
-		label: `${firstName} ${lastName}`,
-		value: participation
-	}))
-  
 	const colors = [
 		'#2C97DD', '#BDC3C7', '#9C56B8', '#E74A34', '#15BA99'
 	]
 
-	return <div>
-		<DonutChart
-			data={dataForChart}
-			colors={colors}
-			strokeColor='white'
-			innerRadius={0.5}
-			outerRadius={0.8}
-			height={450}
-			width={400}
-			clickToggle={false}
-		/>
+	const transformedData = data.map(({ firstName, lastName, participation }, i) => ({
+		value: participation * 100, stroke: colors[i % 5], strokeWidth: 6, label: `${firstName} ${lastName}`
+	}))
+
+	return <div className="donut-container width70">
+		<div className="donut-chart-container">
+			<DonutChart data={transformedData} />
+		</div>
+		<DonutLegend data={transformedData} />
 		<style jsx>{`
-      .donutchart .donutchart-innertext {
-        font-size: 0;
-        background-color: yellow;
-      }
-    `}</style>
+			.donut-container {
+				width: 40%;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.donut-chart-container {
+				width: 50%;
+			}
+			`}</style>
+		{/* Styles for the donut */}
+		<style jsx global>{`
+			.donut-chart-container svg circle {
+				stroke-width: 9;
+			}
+			`}</style>
 	</div>
 }
 
