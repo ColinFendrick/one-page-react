@@ -1,29 +1,40 @@
 const Header = () => (
-	<div className="header">
-		<input type="text" placeholder="First Name"></input>
-		<input type="text" placeholder="Last Name"></input>
-		<input type="text" placeholder="Participation"></input>
-		<button type="submit">Send</button>
+	<div className="header centered">
+		<div className="header-wrapper width70">
+			<input type="text" placeholder="First Name"></input>
+			<input type="text" placeholder="Last Name"></input>
+			<input type="text" placeholder="Participation"></input>
+			<button type="submit">Send</button>
+		</div>
 		<style jsx>{`
       .header {
         background-color: #04bbe2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
         height: 150px;
       }
+      
+      .header-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
       input {
-        height: 30%;
-        width: 15%;
+        height: 25%;
+        width: 25%;
         margin: 0 10px;
         border: none;
         padding-left: 10px;
       }
 
+      input:focus,
+      input:active {
+        outline: 3px solid #cdcdcd;
+      }
+
       button {
-        height: 30%;
+        height: 25%;
         background-color: transparent;
         border-color: white;
         width: 12%;
@@ -31,11 +42,12 @@ const Header = () => (
         color: white;
         text-transform: uppercase;
         font-size: 110%;
+        font-weight: bold;
         cursor: pointer;
-        transition: background-color 0.4s, color 0.4s;
-        -webkit-transition: background-color 0.4s, color 0.4s;
-        -moz-transition: background-color 0.4s, color 0.4s;
-        -o-transition: background-color 0.4s, color 0.4s;
+        transition: background-color 0.2s, color 0.2s;
+        -webkit-transition: background-color 0.2s, color 0.2s;
+        -moz-transition: background-color 0.2s, color 0.2s;
+        -o-transition: background-color 0.2s, color 0.2s;
       }
 
       button:hover {
