@@ -19,8 +19,8 @@ const Index = () => (
         align-items: center;
       }
 
-      :global(.width70) {
-        width: 70%;
+      :global(.width-std) {
+        width: 66%;
       }
     `}</style>
 	</div>

@@ -31,7 +31,7 @@ const Body = () => {
 			<h3>Data</h3>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit.
 		</div>
-		<div className="graphs width70">
+		<div className="graphs width-std">
 			<Table data={data} />
 			<Donut data={data} />
 		</div>
@@ -50,7 +50,7 @@ const Body = () => {
 
       .graphs {
 				display: flex;
-				justify-content: center;
+				justify-content: space-between;
         align-items: flex-start;
       }
     `}</style>

@@ -1,11 +1,15 @@
-const Header = () => (
-	<div className="header centered">
-		<div className="header-wrapper width70">
+const Header = () => {
+	const onSubmit = values => console.log(values)
+  
+	return <div className="header centered">
+		<form onSubmit={onSubmit} className="header-wrapper width-std">
+			
 			<input type="text" placeholder="First Name"></input>
 			<input type="text" placeholder="Last Name"></input>
 			<input type="text" placeholder="Participation"></input>
 			<button type="submit">Send</button>
-		</div>
+			
+		</form>
 		<style jsx>{`
       .header {
         background-color: #04bbe2;
@@ -47,13 +51,16 @@ const Header = () => (
         transition: background-color 0.2s, color 0.2s;
       }
 
-      button:hover {
+      button:hover,
+      button:active,
+      button:focus {
         background-color: white;
         color: #04bbe2;
+        outline: none;
       }
     `}
 		</style>
 	</div>
-)
+}
 
 export default Header

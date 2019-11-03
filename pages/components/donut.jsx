@@ -12,7 +12,7 @@ const Donut = ({ data }) => {
 		value: participation * 100, stroke: colors[i % 5], strokeWidth: 6, label: `${firstName} ${lastName}`
 	}))
 
-	return <div className="donut-container width70">
+	return <div className="donut-container width-std">
 		<div className="donut-chart-container">
 			<DonutChart data={transformedData} />
 		</div>
