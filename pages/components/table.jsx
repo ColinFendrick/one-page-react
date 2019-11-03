@@ -29,7 +29,6 @@ const Table = ({ data }) => (
           color: #b3b3b3;
           align-items: flex-start;
           height: 100%;
-          border: 3px solid salmon;
           width: 400px;
         }
 

@@ -52,7 +52,6 @@ const Body = () => {
 				display: flex;
 				justify-content: center;
         align-items: flex-start;
-        border: 2px solid green;
       }
     `}</style>
 	</div>

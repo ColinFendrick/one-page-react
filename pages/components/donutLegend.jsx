@@ -28,7 +28,8 @@ const DonutLegend = ({ data }) => (
       }
 
       .donut-legend-rect {
-        width: 20px; 
+        width: 17px; 
+        height: 17px;
         margin-right: 4px;
         border-radius: 2px;
       }
