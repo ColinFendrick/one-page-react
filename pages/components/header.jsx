@@ -32,15 +32,15 @@ const Header = () => (
         text-transform: uppercase;
         font-size: 110%;
         cursor: pointer;
+        transition: background-color 0.4s, color 0.4s;
+        -webkit-transition: background-color 0.4s, color 0.4s;
+        -moz-transition: background-color 0.4s, color 0.4s;
+        -o-transition: background-color 0.4s, color 0.4s;
       }
 
       button:hover {
         background-color: white;
         color: #04bbe2;
-        transition: background-color 0.4s, color 0.4s;
-        -webkit-transition: background-color 0.4s, color 0.4s;
-        -moz-transition: background-color 0.4s, color 0.4s;
-        -o-transition: background-color 0.4s, color 0.4s;
       }
     `}
 		</style>
