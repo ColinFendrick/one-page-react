@@ -17,21 +17,32 @@ const Header = ({ appendData }) => {
 				name="firstName"
 				placeholder="First Name"
 				onChange={handleInputChange}
-				value={inputs.firstName} required>
+				value={inputs.firstName}
+				minLength="3"
+				pattern="[A-Za-z]+"
+				title="Must be at least three letters"
+				required>
 			</input>
 			<input
 				type="text"
 				name="lastName"
 				placeholder="Last Name"
 				onChange={handleInputChange}
-				value={inputs.lastName} required>
+				value={inputs.lastName}
+				minLength="3"
+				pattern="[A-Za-z]+"
+				title="Must be at least three letters"
+				required>
 			</input>
 			<input
-				type="text"
+				type="number"
 				name="participation"
 				placeholder="Participation"
 				onChange={handleInputChange}
-				value={inputs.participation}>
+				value={inputs.participation}
+				required
+				min="1"
+				max="100">
 			</input>
 			<button type="submit">Send</button>
 

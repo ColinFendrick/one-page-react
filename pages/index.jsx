@@ -45,17 +45,13 @@ const Index = () => {
 		}]
   
 	const [data, updateData] = useState(initialData.sort((a, b) => b.participation - a.participation))
-
-	const appendData = item => updateData(prevData => [...prevData, item])	
   
 	return <div className="wrapper">
-		<Header appendData={appendData} />
+		<Header appendData={item => updateData(prevData => [...prevData, item])} />
 		<Body data={data} />
 		<style jsx>{`
       .wrapper {
         font-family: Arial, Helvetica, sans-serif;
-        height: 100vh;
-        width: 100vw;
         display: flex;
         flex-direction: column;
       }

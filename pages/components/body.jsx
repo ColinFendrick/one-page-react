@@ -12,7 +12,7 @@ const Body = ({ data }) => {
 			<Table data={data} />
 			<Donut data={data} />
 		</div>
-		<style jsx global>{`
+		<style jsx>{`
       .body {
         flex-direction: column;
         width: 100%;

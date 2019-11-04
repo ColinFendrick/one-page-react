@@ -13,7 +13,7 @@ const DonutLegend = ({ data }) => (
 		<style jsx>{`
       .donut-legend {
         width: 40%;
-        height: 100px;
+        height: 100%;
         font-size: 0.7em;
         display: flex;
         flex-direction: column;
