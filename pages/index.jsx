@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Header, Body } from './components'
+import { Header, Body } from '../components'
 
 const Index = () => {
 	const initialData = [
