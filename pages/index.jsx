@@ -3,30 +3,35 @@ import useAxios from 'axios-hooks'
 import { Header, Body, Loader } from '../components'
 
 const Index = () => {
-	const [{ data: getData, loading: getLoading, error: getError }, refetch] = useAxios('http://localhost:3001/items')
+	const baseURL = 'http://localhost:3001/items'
+	const [{ data: getData, loading: getLoading, error: getError }, refetch] = useAxios(baseURL)
 
 	const [
 		{ loading: putLoading, error: putError },
 		executePost
-	] = useAxios(
-		{
-			url: 'http://localhost:3001/items',
-			method: 'POST'
-		},
-		{ manual: true }
-	)
+	] = useAxios({ baseURL, method: 'POST' }, { manual: true })
 
 	const updateData = async data => {
 		await executePost({ data })
 		refetch()
 	}
 
-	if (getLoading || putLoading) return <Loader />
-	if (getError || putError) return <p>Error!</p>
+	const [
+		{ loading: deleteLoading, error: deleteError },
+		executeDelete
+	] = useAxios({ baseURL, method: 'DELETE' }, { manual: true })
+
+	const deleteData = async ({ _id }) => {
+		await executeDelete({ url: `/${_id}` })
+		refetch()
+	}
+
+	if (getLoading || putLoading || deleteLoading ) return <Loader />
+	if (getError || putError || deleteError) return <p>Error!</p>
   
 	return <div className="wrapper">
-		<Header appendData={item => updateData(item)} />
-		<Body data={getData} />
+		<Header updateData={item => updateData(item)} />
+		<Body data={getData} deleteData={deleteData} />
 		<style jsx>{`
 	    .wrapper {
 	      font-family: Arial, Helvetica, sans-serif;

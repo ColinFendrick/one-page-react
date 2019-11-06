@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 
 import { useForm } from '../hooks'
 
-const Header = ({ appendData }) => {
+const Header = ({ updateData }) => {
 	const initialState = {
 		firstName: '', lastName: '', participation: 0
 	}
 
-	const { inputs, handleInputChange, handleSubmit } = useForm(initialState, () => appendData(inputs))
+	const { inputs, handleInputChange, handleSubmit } = useForm(initialState, () => updateData(inputs))
 
 	return <div className="header centered">
 		<form onSubmit={handleSubmit} className="header-wrapper width-std">
@@ -101,7 +101,7 @@ const Header = ({ appendData }) => {
 }
 
 Header.propTypes = {
-	appendData: PropTypes.func
+	updateData: PropTypes.func
 }
 
 export default Header

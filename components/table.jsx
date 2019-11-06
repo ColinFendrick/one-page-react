@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Table = ({ data }) => (
+const Table = ({ data, deleteData }) => (
 	<div className="table-wrapper">
 		<table>
 			<thead>
@@ -12,8 +12,8 @@ const Table = ({ data }) => (
 				</tr>
 			</thead>
 			<tbody>
-				{data.map(({ firstName, lastName, participation }, i) => (
-					<tr key={i}>
+				{data.map(({ firstName, lastName, participation, _id }, i) => (
+					<tr key={i} className="data-row" onClick={() => deleteData({ _id })}>
 						<td className="center-text">{i}</td>
 						<td className="large-row">{firstName}</td>
 						<td className="large-row">{lastName}</td>
@@ -50,6 +50,15 @@ const Table = ({ data }) => (
           padding: 4px 10px 4px 4px;
         }
 
+        .data-row {
+          transition: background-color 0.5s;
+        }
+
+        .data-row:hover {
+          background-color: red;
+          color: white;
+        }
+
         .large-row {
           text-align: left;
           width: 150px;
@@ -64,7 +73,8 @@ const Table = ({ data }) => (
 )
 
 Table.propTypes = {
-	data: PropTypes.array.isRequired
+	data: PropTypes.array.isRequired,
+	deleteData: PropTypes.func
 }
 
 export default Table

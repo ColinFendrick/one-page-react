@@ -2,14 +2,14 @@ import PropTypes from 'prop-types'
 
 import { Table, Donut } from '.'
 
-const Body = ({ data }) => {
+const Body = ({ data, deleteData }) => {
 	return <div className="body centered">
 		<div className="title">
 			<h3>Data</h3>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			To delete an element, click the row in the table. To add, use the above form.
 		</div>
 		<div className="graphs width-std">
-			<Table data={data} />
+			<Table data={data} deleteData={deleteData} />
 			<Donut data={data} />
 		</div>
 		<style jsx>{`
@@ -35,7 +35,8 @@ const Body = ({ data }) => {
 }
 
 Body.propTypes = {
-	data: PropTypes.array
+	data: PropTypes.array,
+	deleteData: PropTypes.func
 }
 
 export default Body
