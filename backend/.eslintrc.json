@@ -13,6 +13,26 @@
       "error",
       "tab"
     ],
+    "no-trailing-spaces": "error",
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": false,
+        "objectsInObjects": false
+      }
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
     "linebreak-style": [
       "error",
       "unix"
@@ -21,9 +41,16 @@
       "error",
       "single"
     ],
+    "eol-last": ["error", "always"],
     "semi": [
       "error",
-      "never"
+      "always"
+    ],
+    "space-infix-ops": [
+      "error",
+      {
+        "int32Hint": false
+      }
     ],
     "no-unused-vars": 0
   }

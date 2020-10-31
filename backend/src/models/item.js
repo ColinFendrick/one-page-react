@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
 	firstName: {
@@ -16,14 +16,14 @@ const itemSchema = new mongoose.Schema({
 		default: 0,
 		validate(value) {
 			if (value < 1) {
-				throw new Error('Age must be positive number greater than 0')
+				throw new Error('Age must be positive number greater than 0');
 			}
 		}
 	}
 }, {
 	timestamps: true
-})
+});
 
-const Item = mongoose.model('Item', itemSchema)
+const Item = mongoose.model('Item', itemSchema);
 
-module.exports = Item
+module.exports = Item;
