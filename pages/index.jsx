@@ -1,55 +1,56 @@
-import useAxios from 'axios-hooks'
+import useAxios from "axios-hooks";
 
-import { Header, Body, Loader } from '../components'
+import { Header, Body, Loader } from "../components";
 
 const Index = () => {
-	const baseURL = 'http://localhost:3001/items'
-	const [{ data: getData, loading: getLoading, error: getError }, refetch] = useAxios(baseURL)
+  const baseURL = "http://localhost:3001/items";
+  const [{ data: getData, loading: getLoading, error: getError }, refetch] =
+    useAxios(baseURL);
 
-	const [
-		{ loading: putLoading, error: putError },
-		executePost
-	] = useAxios({ baseURL, method: 'POST' }, { manual: true })
+  const [{ loading: putLoading, error: putError }, executePost] = useAxios(
+    { baseURL, method: "POST" },
+    { manual: true }
+  );
 
-	const updateData = async data => {
-		await executePost({ data })
-		refetch()
-	}
+  const updateData = async (data) => {
+    await executePost({ data });
+    refetch();
+  };
 
-	const [
-		{ loading: deleteLoading, error: deleteError },
-		executeDelete
-	] = useAxios({ baseURL, method: 'DELETE' }, { manual: true })
+  const [{ loading: deleteLoading, error: deleteError }, executeDelete] =
+    useAxios({ baseURL, method: "DELETE" }, { manual: true });
 
-	const deleteData = async ({ _id }) => {
-		await executeDelete({ url: `/${_id}` })
-		refetch()
-	}
+  const deleteData = async ({ _id }) => {
+    await executeDelete({ url: `/${_id}` });
+    refetch();
+  };
 
-	if (getLoading || putLoading || deleteLoading ) return <Loader />
-	if (getError || putError || deleteError) return <p>Error!</p>
-  
-	return <div className="wrapper">
-		<Header updateData={item => updateData(item)} />
-		<Body data={getData} deleteData={deleteData} />
-		<style jsx>{`
-	    .wrapper {
-	      font-family: Arial, Helvetica, sans-serif;
-	      display: flex;
-	      flex-direction: column;
-	    }
+  if (getLoading || putLoading || deleteLoading) return <Loader />;
+  if (getError || putError || deleteError) return <p>Error!</p>;
 
-	    :global(.centered) {
-	      display: flex;
-	      justify-content: center;
-	      align-items: center;
-	    }
+  return (
+    <div className="wrapper">
+      <Header updateData={(item) => updateData(item)} />
+      <Body data={getData} deleteData={deleteData} />
+      <style jsx>{`
+        .wrapper {
+          font-family: Arial, Helvetica, sans-serif;
+          display: flex;
+          flex-direction: column;
+        }
 
-	    :global(.width-std) {
-	      width: 66%;
-	    }
-	  `}</style>
-	</div>
-}
+        :global(.centered) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
-export default Index
+        :global(.width-std) {
+          width: 66%;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Index;

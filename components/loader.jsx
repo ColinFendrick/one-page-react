@@ -1,8 +1,12 @@
 const Loader = () => (
-	<div className="loader-page">
-		<div className="lds-ring"><div></div><div></div><div></div><div></div>
-		</div>
-		<style jsx>{`
+  <div className="loader-page">
+    <div className="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <style jsx>{`
       .loader-page {
         position: absolute;
         top: 0;
@@ -51,7 +55,7 @@ const Loader = () => (
         }
       }
     `}</style>
-	</div>
-)
+  </div>
+);
 
-export default Loader
+export default Loader;

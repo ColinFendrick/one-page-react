@@ -1,16 +1,19 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const DonutLegend = ({ data }) => (
-	<div className="donut-legend">
-		{data.map(({ label, stroke }, i) => (
-			<div key={i} className="donut-legend-row">
-				<div className="donut-legend-rect" style={{ backgroundColor: stroke }}></div>
-				<div className="donut-legend-text" style={{ color: stroke }}>
-					<div>{label}</div>
-				</div>
-			</div>
-		))}
-		<style jsx>{`
+  <div className="donut-legend">
+    {data.map(({ label, stroke }, i) => (
+      <div key={i} className="donut-legend-row">
+        <div
+          className="donut-legend-rect"
+          style={{ backgroundColor: stroke }}
+        ></div>
+        <div className="donut-legend-text" style={{ color: stroke }}>
+          <div>{label}</div>
+        </div>
+      </div>
+    ))}
+    <style jsx>{`
       .donut-legend {
         width: 40%;
         height: 100%;
@@ -28,7 +31,7 @@ const DonutLegend = ({ data }) => (
       }
 
       .donut-legend-rect {
-        width: 17px; 
+        width: 17px;
         height: 17px;
         margin-right: 4px;
         border-radius: 2px;
@@ -38,12 +41,12 @@ const DonutLegend = ({ data }) => (
         display: flex;
         align-items: center;
       }
-      `}</style>
-	</div>
-)
+    `}</style>
+  </div>
+);
 
 DonutLegend.propTypes = {
-	data: PropTypes.array.isRequired
-}
+  data: PropTypes.array.isRequired,
+};
 
-export default DonutLegend
+export default DonutLegend;
