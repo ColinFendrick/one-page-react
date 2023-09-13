@@ -2,6 +2,7 @@ const express = require('express');
 
 require('./db/mongoose');
 const itemRouter = require('./routers/item');
+const userRouter = require('./routers/user');
 
 const port = process.env.PORT || 3001;
 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use(itemRouter);
+app.use(userRouter);
 
 app.listen(port, () => {
 	console.log(`Server is up on port ${port}`);

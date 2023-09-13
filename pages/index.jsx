@@ -2,13 +2,14 @@ import useAxios from "axios-hooks";
 
 import { Header, Body, Loader } from "../components";
 
+const baseURL = "http://localhost:3001";
+
 const Index = () => {
-  const baseURL = "http://localhost:3001/items";
   const [{ data: getData, loading: getLoading, error: getError }, refetch] =
-    useAxios(baseURL);
+    useAxios(`${baseURL}/items`);
 
   const [{ loading: putLoading, error: putError }, executePost] = useAxios(
-    { baseURL, method: "POST" },
+    { baseURL: `${baseURL}/items`, method: "POST" },
     { manual: true }
   );
 
@@ -18,7 +19,10 @@ const Index = () => {
   };
 
   const [{ loading: deleteLoading, error: deleteError }, executeDelete] =
-    useAxios({ baseURL, method: "DELETE" }, { manual: true });
+    useAxios(
+      { baseURL: `${baseURL}/items`, method: "DELETE" },
+      { manual: true }
+    );
 
   const deleteData = async ({ _id }) => {
     await executeDelete({ url: `/${_id}` });
